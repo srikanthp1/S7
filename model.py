@@ -130,7 +130,7 @@ class Net2(nn.Module):
             nn.BatchNorm2d(14),
             nn.Conv2d(14, 10, 1),                     #7*7, 7*7, 34,34
             # nn.ReLU(),
-            nn.AvgPool2d(7)                            #7*7, 1*1, 34,34
+            nn.AvgPool2d(7)                            #7*7, 1*1, 34,34+6*4
             # nn.AdaptiveMaxPool2d(7)
             # nn.ReLU(),
             # nn.BatchNorm2d(128),
@@ -208,9 +208,9 @@ class Net3(nn.Module):
             nn.BatchNorm2d(18),
             nn.Dropout(0.01),
 
-            nn.AvgPool2d(4),                                        #4*4, 1*1, 32,32
+            nn.AvgPool2d(4),                                        #4*4, 1*1, 32,44(32+4*3)
 
-            nn.Conv2d(18, 10, 1, bias=False),                       #1*1, 1*1, 32,32
+            nn.Conv2d(18, 10, 1, bias=False),                       #1*1, 1*1, 44,44
 
         )
 
