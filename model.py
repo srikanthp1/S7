@@ -78,16 +78,19 @@ class Net2(nn.Module):
         
         self.conv1 = nn.Sequential(                  #in_s, out_s, rf_in, rf_out
             nn.Conv2d(1, 8, 3, padding=1),           #28*28, 28*28, 1,3
-            nn.ReLU(),
             nn.BatchNorm2d(8),
+            nn.ReLU(),
+            
             nn.Dropout(0.1),
             nn.Conv2d(8, 8, 3, padding=1),           #28*28, 28*28, 3,5
-            nn.ReLU(),
             nn.BatchNorm2d(8),
+            nn.ReLU(),
+            
             nn.Dropout(0.1),
             nn.Conv2d(8, 16, 3, padding=1),           #28*28, 28*28, 5,7
-            nn.ReLU(),
             nn.BatchNorm2d(16),
+            nn.ReLU(),
+            
             nn.Dropout(0.1),
             # nn.Dropout(0.1),
             nn.MaxPool2d(2, 2),                      #28*28, 14*14, 7,8
@@ -102,13 +105,15 @@ class Net2(nn.Module):
             # nn.BatchNorm2d(16),
             # nn.Dropout(0.1),
             nn.Conv2d(10, 12, 3, padding=1),           #14*14, 14*14, 8,12
-            nn.ReLU(),
             nn.BatchNorm2d(12),
+            nn.ReLU(),
+            
             nn.Dropout(0.1),
             
             nn.Conv2d(12, 12, 3, padding=1),           #14*14, 14*14, 12,16
-            nn.ReLU(),
             nn.BatchNorm2d(12),
+            nn.ReLU(),
+            
             nn.Dropout(0.1),
             nn.Conv2d(12, 10, 1),  
 
@@ -123,11 +128,13 @@ class Net2(nn.Module):
             # nn.ReLU(),
             # nn.BatchNorm2d(20),
             nn.Conv2d(10, 14, 3, padding=1),           #7*7, 7*7, 18,26
-            nn.ReLU(),
             nn.BatchNorm2d(14),
+            nn.ReLU(),
+            
             nn.Conv2d(14, 14, 3, padding=1),           #7*7, 7*7, 26,34
-            nn.ReLU(),
             nn.BatchNorm2d(14),
+            nn.ReLU(),
+            
             nn.Conv2d(14, 10, 1),                     #7*7, 7*7, 34,34
             # nn.ReLU(),
             nn.AvgPool2d(7)                            #7*7, 1*1, 34,34+6*4
@@ -162,13 +169,15 @@ class Net3(nn.Module):
 
         self.conv1 = nn.Sequential(                  #in_s, out_s, rf_in, rf_out
             nn.Conv2d(1, 8, 3, padding=0, bias=False),           #28*28, 26*26, 1,3
-            nn.ReLU(),
             nn.BatchNorm2d(8),
+            nn.ReLU(),
+            
             nn.Dropout(0.01),
 
             nn.Conv2d(8, 12, 3, padding=0, bias=False),           #26*26, 24*24, 3,5
-            nn.ReLU(),
             nn.BatchNorm2d(12),
+            nn.ReLU(),
+            
             nn.Dropout(0.01),
 
             nn.MaxPool2d(2, 2),                                 #24*24, 12*12, 5,6
@@ -182,13 +191,15 @@ class Net3(nn.Module):
             # nn.BatchNorm2d(16),
             # nn.Dropout(0.1),
             nn.Conv2d(8, 12, 3, padding=0, bias=False),           #12*12, 10*10, 6,10
-            nn.ReLU(),
             nn.BatchNorm2d(12),
+            nn.ReLU(),
+            
             nn.Dropout(0.01),
 
             nn.Conv2d(12, 16, 3, padding=0, bias=False),           #10*10, 8*8, 10,14
-            nn.ReLU(),
             nn.BatchNorm2d(16),
+            nn.ReLU(),
+            
             nn.Dropout(0.01),
 
 
@@ -200,12 +211,14 @@ class Net3(nn.Module):
 
         self.conv3 = nn.Sequential(
             nn.Conv2d(10, 14, 3, padding=1, bias=False),            #4*4, 4*4, 16,24
-            nn.ReLU(),
             nn.BatchNorm2d(14),
+            nn.ReLU(),
+            
             nn.Dropout(0.01),
             nn.Conv2d(14, 18, 3, padding=1, bias=False),            #4*4, 4*4, 24,32
-            nn.ReLU(),
             nn.BatchNorm2d(18),
+            nn.ReLU(),
+            
             nn.Dropout(0.01),
 
             nn.AvgPool2d(4),                                        #4*4, 1*1, 32,44(32+4*3)
